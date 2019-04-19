@@ -1,0 +1,10 @@
+D:\Git\PlaneApp\PlaneApp\bin\Debug\PlaneApp.exe.config
+D:\Git\PlaneApp\PlaneApp\bin\Debug\PlaneApp.exe
+D:\Git\PlaneApp\PlaneApp\bin\Debug\PlaneApp.pdb
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.csprojAssemblyReference.cache
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.PlaneForm.resources
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.Properties.Resources.resources
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.csproj.GenerateResource.cache
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.csproj.CoreCompileInputs.cache
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.exe
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.pdb
