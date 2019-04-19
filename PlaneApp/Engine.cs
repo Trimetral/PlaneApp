@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PlaneApp
+namespace PlaneAppLibrary
 {
     /// <summary>
     /// Представляет методы и свойства класса "Двигатель"
@@ -70,24 +70,16 @@ namespace PlaneApp
         /// <summary>
         /// Получить имя двигателя
         /// </summary>
-        public string GetName()
-        {
-            return Name;
-        }
+        public string GetName() => Name;
 
 
         /// <summary>
         /// Получить спецификацию двигателя
         /// </summary>
-        public string GetSpecs()
-        {
-            return $"Расход топлива для одного двигателя: {Rate}; Количество двигателей: {Count}";
-        }
+        public string GetSpecs() => $"\r\n\tРасход топлива за час: {Rate} кг/ч; \r\n\tКоличество двигателей: {Count};";
 
 
-        public override string ToString()
-        {
-            return $"{GetName()} :: {GetSpecs()}";
-        }
+        public override string ToString() => $"{GetName()} :: {GetSpecs()}";
+        
     }
 }

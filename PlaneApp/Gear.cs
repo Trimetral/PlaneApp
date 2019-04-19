@@ -4,20 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlaneApp
+namespace PlaneAppLibrary
 {
+    /// <summary>
+    /// Представляет методы и свойства класса "Шасси"
+    /// </summary>
     class Gear : IPlanePart
     {
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get; set; }
+        public int Count { get; set; }
+        public double Diam { get; set; }
 
-        public string GetName()
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        public Gear()
         {
-            throw new NotImplementedException();
+            this.Count = 3;
+            this.Diam = 400d;
+            this.Name = "Шасси";
         }
 
-        public string GetSpecs()
+        public string GetName() => "Шасси";
+
+        public string GetSpecs() => $"\r\n\tКоличество шасси: {Count};\r\n\tДиаметр: {Diam} мм;";
+
+
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"{GetName()} :: {GetSpecs()}";
         }
     }
 }

@@ -8,3 +8,6 @@ D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.csproj.GenerateResource.cache
 D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.csproj.CoreCompileInputs.cache
 D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.exe
 D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.pdb
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.AddingPlane.resources
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneAppLibrary.AddRoute.resources
+D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.AddFuel.resources

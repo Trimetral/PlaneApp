@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PlaneApp
+namespace PlaneAppLibrary
 {
     /// <summary>
     /// Представляет методы и свойства класса "Крыло"
@@ -13,8 +13,8 @@ namespace PlaneApp
     class Wing : IPlanePart
     {
         public string Name { get; set; }
-        double FuelLevel { get; set; }
-        double FuelMax { get; }   
+        public double FuelLevel { get; set; }
+        public double FuelMax { get; set; }
 
         /// <summary>
         /// Конструктор класса
@@ -24,7 +24,7 @@ namespace PlaneApp
         public Wing()
         {
             Name = "Крыло";
-            this.FuelLevel = 0d;
+            this.FuelLevel = 1.232342d;
             this.FuelMax = 0d;
         }
 
@@ -40,19 +40,13 @@ namespace PlaneApp
         /// <summary>
         /// Получить имя части самолёта
         /// </summary>
-        public string GetName()
-        {
-            return Name;
-        }
+        public string GetName() => Name;
 
 
         /// <summary>
         /// Получить спецификацию части самолёта
         /// </summary>
-        public string GetSpecs()
-        {
-            return $"Максимальное количество топлива: {FuelMax}; Топлива в баке на данный момент: {FuelLevel:0.00}";
-        }
+        public string GetSpecs() => $"\r\n\tМаксимальное количество топлива: {FuelMax:0.##} кг; \r\n\tТоплива в баке на данный момент: {FuelLevel:0.##} кг;";
 
 
         /// <summary>
@@ -60,8 +54,9 @@ namespace PlaneApp
         /// </summary>
         public void Refuel()
         {
+            double diff = (FuelMax - FuelLevel) * 50;
             FuelLevel = FuelMax;
-            MessageBox.Show("Бак заправлен до конца");
+            MessageBox.Show($"Бак заправлен до конца, цена: {diff:### ### ### ###} руб.", "Предупреждение");
         }
 
 
@@ -75,18 +70,23 @@ namespace PlaneApp
             if (FuelLevel > FuelMax)
             {
                 double extra = FuelLevel - FuelMax;
-                MessageBox.Show($"Бак заправлен, лишнее топливо: {extra}");
+                MessageBox.Show($"Бак заправлен полностью, цена: {(capacity - extra) * 50:### ### ### ###} руб.\r\nЛишнее топливо: {extra}", "Предупреждение");
             }
             else
             {
-                MessageBox.Show($"Бак заправлен на {FuelLevel / FuelMax * 100}%");
+                MessageBox.Show($"Бак заправлен на {FuelLevel / FuelMax * 100:##.##}%, цена {capacity * 50:### ### ### ###} руб.", "Предупреждение");
             }
         }
 
 
-        public override string ToString()
-        {
-            return $"{GetName()} :: {GetSpecs()}";
-        }
+        /// <summary>
+        /// Потратить топливо
+        /// </summary>
+        /// <param name="capacity">Количество потраченного топлива</param>
+        public void WasteFuel(double capacity) => FuelLevel -= capacity;
+
+
+        public override string ToString() => $"{GetName()} :: {GetSpecs()}";
+        
     }
 }
