@@ -30,11 +30,16 @@ namespace PlaneAppLibrary
                     Ready = true;
                     Close();
                 }
-                else { MessageBox.Show("Введите число больше 0!", "Ошибка!"); }
+                else
+                {
+                    routeTB.Text = "";
+                    MessageBox.Show("Введите число больше нуля!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch
             {
-                MessageBox.Show("Длина пути должна быть числом с плавающей точкой", "Ошибка!");
+                routeTB.Text = "";
+                MessageBox.Show("Длина пути должна быть числом с плавающей точкой", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

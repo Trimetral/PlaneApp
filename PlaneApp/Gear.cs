@@ -9,7 +9,7 @@ namespace PlaneAppLibrary
     /// <summary>
     /// Представляет методы и свойства класса "Шасси"
     /// </summary>
-    class Gear : IPlanePart
+    public class Gear : IPlanePart
     {
         public string Name { get; set; }
         public int Count { get; set; }
@@ -29,10 +29,7 @@ namespace PlaneAppLibrary
 
         public string GetSpecs() => $"\r\n\tКоличество шасси: {Count};\r\n\tДиаметр: {Diam} мм;";
 
-
-        public override string ToString()
-        {
-            return $"{GetName()} :: {GetSpecs()}";
-        }
+        public override string ToString() => $"{GetName()} :: {GetSpecs()}";
+        
     }
 }

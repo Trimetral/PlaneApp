@@ -27,12 +27,21 @@ namespace PlaneApp
             try
             {
                 Capasity = Convert.ToDouble(fuelTB.Text);
-                Ready = true;
-                Close();
+                if (Capasity > 0)
+                {
+                    Ready = true;
+                    Close();
+                }
+                else
+                {
+                    fuelTB.Text = "";
+                    MessageBox.Show("Введите число больше нуля!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch
             {
-                MessageBox.Show("Количество топлива должно быть числом с плавающей точкой!", "Ошибка!");
+                fuelTB.Text = "";
+                MessageBox.Show("Количество топлива должно быть числом с плавающей точкой!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -51,11 +60,16 @@ namespace PlaneApp
                 {
                     fuelTB.Text = (route / 900 * rate + 0.001).ToString();
                 }
-                else { MessageBox.Show("Введите число больше 0!", "Ошибка!"); }
+                else
+                {
+                    routeTB.Text = "";
+                    MessageBox.Show("Введите число больше нуля!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch
             {
-                MessageBox.Show("Путь должен быть числом с плавающей точкой!", "Ошибка!");
+                routeTB.Text = "";
+                MessageBox.Show("Путь должен быть числом с плавающей точкой!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

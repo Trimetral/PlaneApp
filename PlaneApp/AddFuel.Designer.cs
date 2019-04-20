@@ -114,6 +114,7 @@
             this.Controls.Add(this.Accept);
             this.Name = "AddFuel";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Дозаправить";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -8,11 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using PlaneAppLibrary;
+
 namespace PlaneApp
 {
     public partial class AddingPlane : Form
     {
         public bool Ready = false;
+        public Plane Plane;
+
+        private bool ChangePlane;
         private int count;
 
         public string planeName = "Безымянный";
@@ -33,24 +38,80 @@ namespace PlaneApp
             this.count = ++count;
             InitializeComponent();
 
+            ChangePlane = false;
             namesCB.DataSource = new string[] { "Boeing 737-300", "ИЛ-86", "A330", "МС-21" };
+        }
+
+        public AddingPlane(Plane Plane)
+        {           
+            InitializeComponent();
+
+            this.Plane = Plane;
+            ChangePlane = true;
+            namesCB.DataSource = new string[] { "Boeing 737-300", "ИЛ-86", "A330", "МС-21" };
+            namesCB.SelectedIndex = -1;
+            namesCB.Text = Plane.GetName();
+
+            enameTB.Text = Plane.Engine.GetName();
+            rateTB.Text = Plane.Engine.GetRate().ToString();
+            ecountTB.Text = Plane.Engine.GetEnginesCount().ToString();
+
+            curfTB.Text = Plane.Wing.GetFuelLevel().ToString();
+            maxfTB.Text = Plane.Wing.GetFuelLevelMax().ToString();
+
+            gcountTB.Text = Plane.Gear.Count.ToString();
+            diamTB.Text = Plane.Gear.Diam.ToString();
         }
 
         private void AcceptB_Click(object sender, EventArgs e)
         {
-            Ready = true;
 
             if (namesCB.Text != "") planeName = $"{namesCB.Text} ({count})";
             else planeName = $"Безымянный{count}";
             if (enameTB.Text != "") engineName = enameTB.Text;
 
-            eRate = Convert.ToDouble(rateTB.Text);
-            eCount = Convert.ToInt32(ecountTB.Text);
-            curFuel = Convert.ToDouble(curfTB.Text);
-            maxFuel = Convert.ToDouble(maxfTB.Text);
-            gerCount = Convert.ToInt32(gcountTB.Text);
-            gerDiam = Convert.ToDouble(diamTB.Text);
 
+            try
+            {
+                eRate = Convert.ToDouble(rateTB.Text);
+                if (eRate < 1) { MessageBox.Show("Недопустимое значение расхода!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); rateTB.Text = ""; rateTB.Focus(); return; }
+
+                eCount = Convert.ToInt32(ecountTB.Text);
+                if (eCount < 1) { MessageBox.Show("Недопустимое значение количества двигателей!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); ecountTB.Text = ""; ecountTB.Focus(); return; }
+
+                curFuel = Convert.ToDouble(curfTB.Text);
+                if (curFuel < 0) { MessageBox.Show("Недопустимое значение количества топлива!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); curfTB.Text = ""; curfTB.Focus(); return; }
+
+                maxFuel = Convert.ToDouble(maxfTB.Text);
+                if (maxFuel < 1) { MessageBox.Show("Недопустимое значение максимального количества топлива!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); maxfTB.Text = ""; maxfTB.Focus(); return; }
+                else if(maxFuel < curFuel) { MessageBox.Show("Текущее количество топлива не может превышать максимальное!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+
+                gerCount = Convert.ToInt32(gcountTB.Text);
+                if (gerCount < 1) { MessageBox.Show("Недопустимое значение количества шасси!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); gcountTB.Text = ""; gcountTB.Focus(); return; }
+
+                gerDiam = Convert.ToDouble(diamTB.Text);
+                if (gerDiam < 1) { MessageBox.Show("Недопустимое значение диаметра шасси!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); diamTB.Text = ""; diamTB.Focus(); return; }
+
+                if (ChangePlane)
+                {
+                    Plane.SetName(namesCB.Text);
+
+                    Plane.Engine.SetName(enameTB.Text);
+                    Plane.Engine.SetRate(eRate);
+                    Plane.Engine.SetEnginesCount(eCount);
+
+                    Plane.Wing.SetFuelLevel(curFuel);
+                    Plane.Wing.SetFuelLevelMax(maxFuel);
+
+                    Plane.Gear.Count = gerCount;
+                    Plane.Gear.Diam = gerDiam;
+                }
+            }
+            catch
+            { MessageBox.Show("Недопустимое значение!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); AcceptB.Enabled = false; return; }
+
+
+            Ready = true;
             Close();
         }
 
@@ -59,53 +120,6 @@ namespace PlaneApp
             Close();
         }
 
-        #region Проверки на правильность заполненных данных
-
-        private void rateTB_Leave(object sender, EventArgs e)
-        {
-            if (rateTB.Text != "")
-                try { Convert.ToDouble(rateTB.Text); }
-                catch { MessageBox.Show("Номорасход должен быть числом с плавающей точкой!"); rateTB.Text = ""; }
-        }
-
-
-        private void ecountTB_Leave(object sender, EventArgs e)
-        {
-            if (ecountTB.Text != "")
-                try { Convert.ToInt32(ecountTB.Text); }
-                catch { MessageBox.Show("Номорасход должен быть целым числом!"); ecountTB.Text = ""; }
-        }
-
-        private void curfTB_Leave(object sender, EventArgs e)
-        {
-            if (curfTB.Text != "")
-                try { Convert.ToDouble(curfTB.Text); }
-                catch { MessageBox.Show("Номорасход должен быть числом с плавающей точкой!"); curfTB.Text = ""; }
-        }
-
-        private void maxfTB_Leave(object sender, EventArgs e)
-        {
-            if (maxfTB.Text != "")
-                try { Convert.ToDouble(maxfTB.Text); }
-                catch { MessageBox.Show("Номорасход должен быть числом с плавающей точкой!"); maxfTB.Text = ""; }
-        }
-
-        private void gcountTB_Leave(object sender, EventArgs e)
-        {
-            if (gcountTB.Text != "")
-                try { Convert.ToInt32(gcountTB.Text); }
-                catch { MessageBox.Show("Номорасход должен быть целым числом!"); gcountTB.Text = ""; }
-        }
-
-        private void diamTB_Leave(object sender, EventArgs e)
-        {
-            if (diamTB.Text != "")
-                try { Convert.ToDouble(diamTB.Text); }
-                catch { MessageBox.Show("Номорасход должен быть числом с плавающей точкой!"); diamTB.Text = ""; }
-        }
-
-
-        #endregion
 
         private void namesCB_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -142,5 +156,40 @@ namespace PlaneApp
                 rateTB.Text = "3100";
             }
         }
+
+        #region Misc
+
+        private void rateTB_TextChanged(object sender, EventArgs e)
+        {
+            AcceptB.Enabled = true;
+        }
+
+        private void ecountTB_TextChanged(object sender, EventArgs e)
+        {
+            AcceptB.Enabled = true;
+        }
+
+        private void curfTB_TextChanged(object sender, EventArgs e)
+        {
+            AcceptB.Enabled = true;
+        }
+
+        private void maxfTB_TextChanged(object sender, EventArgs e)
+        {
+            AcceptB.Enabled = true;
+        }
+
+        private void gcountTB_TextChanged(object sender, EventArgs e)
+        {
+            AcceptB.Enabled = true;
+        }
+
+        private void diamTB_TextChanged(object sender, EventArgs e)
+        {
+            AcceptB.Enabled = true;
+        }
+
+        #endregion
+
     }
 }

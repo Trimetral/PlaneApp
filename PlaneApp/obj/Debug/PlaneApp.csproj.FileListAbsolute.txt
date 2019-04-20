@@ -11,3 +11,16 @@ D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.pdb
 D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.AddingPlane.resources
 D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneAppLibrary.AddRoute.resources
 D:\Git\PlaneApp\PlaneApp\obj\Debug\PlaneApp.AddFuel.resources
+E:\кк\прог\planeapp\PlaneApp\bin\Debug\PlaneApp.exe.config
+E:\кк\прог\planeapp\PlaneApp\bin\Debug\PlaneApp.exe
+E:\кк\прог\planeapp\PlaneApp\bin\Debug\PlaneApp.pdb
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.csprojAssemblyReference.cache
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.AddFuel.resources
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.AddingPlane.resources
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneAppLibrary.AddRoute.resources
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.PlaneForm.resources
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.Properties.Resources.resources
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.csproj.GenerateResource.cache
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.csproj.CoreCompileInputs.cache
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.exe
+E:\кк\прог\planeapp\PlaneApp\obj\Debug\PlaneApp.pdb

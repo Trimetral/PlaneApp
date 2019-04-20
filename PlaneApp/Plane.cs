@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PlaneAppLibrary
 {
-    class Plane : Actions, IPlanePart
+    public class Plane : Actions, IPlanePart
     {
-        private readonly Engine Engine;
-        private readonly Gear Gear;
-        private readonly Wing Wing;
+        public readonly Engine Engine;
+        public readonly Gear Gear;
+        public readonly Wing Wing;
 
         public string Name { get; set; }
         public int ID = 0;
@@ -25,34 +25,12 @@ namespace PlaneAppLibrary
             ID = GetHashCode();
         }
 
-        /// <summary>
-        /// Заправить самолёт
-        /// </summary>
-        public void Refuel() => Wing.Refuel();
-
-        /// <summary>
-        /// Заправить самолёт на конкретное количетво топлива
-        /// </summary>
-        /// <param name="capacity"></param>
-        public void Refuel(double capacity) => Wing.Refuel(capacity);
-
-        /// <summary>
-        /// Потратить топливо
-        /// </summary>
-        /// <param name="capacity">Количество потраченного топлива</param>
-        public void WasteFuel(double capacity) => Wing.WasteFuel(capacity);
-
-        /// <summary>
-        /// Получить расход топлива одного двигателя
-        /// </summary>
-        public double GetRate() => Engine.GetRate();
-
-        /// <summary>
-        /// Получить теккущее количество топлива в баках
-        /// </summary>
-        public double GetFuelLevel() => Wing.GetFuelLevel();
-
         public override string ToString() => $"Самолёт {Name}";
+
+        /// <summary>
+        /// Установить имя
+        /// </summary>
+        public void SetName(string newName) => Name = newName;
 
         public string GetName() => Name;
 

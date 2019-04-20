@@ -82,6 +82,7 @@
             this.Controls.Add(this.Accept);
             this.Name = "AddRoute";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавить маршрут";
             this.ResumeLayout(false);
             this.PerformLayout();

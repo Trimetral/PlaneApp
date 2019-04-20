@@ -54,61 +54,62 @@
             // enameTB
             // 
             this.enameTB.Location = new System.Drawing.Point(166, 103);
-            this.enameTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.enameTB.Margin = new System.Windows.Forms.Padding(4);
+            this.enameTB.Multiline = true;
             this.enameTB.Name = "enameTB";
-            this.enameTB.Size = new System.Drawing.Size(139, 21);
+            this.enameTB.Size = new System.Drawing.Size(139, 37);
             this.enameTB.TabIndex = 1;
             this.enameTB.Text = "CFMI CFM56-3B1/3B2";
             // 
             // rateTB
             // 
-            this.rateTB.Location = new System.Drawing.Point(166, 133);
-            this.rateTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rateTB.Location = new System.Drawing.Point(166, 148);
+            this.rateTB.Margin = new System.Windows.Forms.Padding(4);
             this.rateTB.Name = "rateTB";
             this.rateTB.Size = new System.Drawing.Size(139, 21);
             this.rateTB.TabIndex = 2;
             this.rateTB.Text = "2600";
-            this.rateTB.Leave += new System.EventHandler(this.rateTB_Leave);
+            this.rateTB.TextChanged += new System.EventHandler(this.rateTB_TextChanged);
             // 
             // ecountTB
             // 
-            this.ecountTB.Location = new System.Drawing.Point(166, 163);
-            this.ecountTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ecountTB.Location = new System.Drawing.Point(166, 178);
+            this.ecountTB.Margin = new System.Windows.Forms.Padding(4);
             this.ecountTB.Name = "ecountTB";
             this.ecountTB.Size = new System.Drawing.Size(139, 21);
             this.ecountTB.TabIndex = 3;
             this.ecountTB.Text = "2";
-            this.ecountTB.Leave += new System.EventHandler(this.ecountTB_Leave);
+            this.ecountTB.TextChanged += new System.EventHandler(this.ecountTB_TextChanged);
             // 
             // curfTB
             // 
             this.curfTB.Location = new System.Drawing.Point(563, 103);
-            this.curfTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.curfTB.Margin = new System.Windows.Forms.Padding(4);
             this.curfTB.Name = "curfTB";
             this.curfTB.Size = new System.Drawing.Size(56, 21);
             this.curfTB.TabIndex = 4;
             this.curfTB.Text = "0";
-            this.curfTB.Leave += new System.EventHandler(this.curfTB_Leave);
+            this.curfTB.TextChanged += new System.EventHandler(this.curfTB_TextChanged);
             // 
             // maxfTB
             // 
             this.maxfTB.Location = new System.Drawing.Point(563, 133);
-            this.maxfTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maxfTB.Margin = new System.Windows.Forms.Padding(4);
             this.maxfTB.Name = "maxfTB";
             this.maxfTB.Size = new System.Drawing.Size(56, 21);
             this.maxfTB.TabIndex = 5;
             this.maxfTB.Text = "23830";
-            this.maxfTB.Leave += new System.EventHandler(this.maxfTB_Leave);
+            this.maxfTB.TextChanged += new System.EventHandler(this.maxfTB_TextChanged);
             // 
             // diamTB
             // 
-            this.diamTB.Location = new System.Drawing.Point(169, 264);
-            this.diamTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.diamTB.Location = new System.Drawing.Point(169, 285);
+            this.diamTB.Margin = new System.Windows.Forms.Padding(4);
             this.diamTB.Name = "diamTB";
             this.diamTB.Size = new System.Drawing.Size(139, 21);
             this.diamTB.TabIndex = 7;
             this.diamTB.Text = "400";
-            this.diamTB.Leave += new System.EventHandler(this.diamTB_Leave);
+            this.diamTB.TextChanged += new System.EventHandler(this.diamTB_TextChanged);
             // 
             // label1
             // 
@@ -133,7 +134,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 136);
+            this.label3.Location = new System.Drawing.Point(14, 151);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 15);
@@ -143,7 +144,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 166);
+            this.label4.Location = new System.Drawing.Point(14, 181);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 15);
@@ -183,7 +184,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 210);
+            this.label8.Location = new System.Drawing.Point(17, 231);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 15);
@@ -203,7 +204,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 237);
+            this.label10.Location = new System.Drawing.Point(17, 258);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(112, 15);
@@ -213,7 +214,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 267);
+            this.label11.Location = new System.Drawing.Point(17, 288);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 15);
@@ -222,18 +223,18 @@
             // 
             // gcountTB
             // 
-            this.gcountTB.Location = new System.Drawing.Point(169, 234);
-            this.gcountTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcountTB.Location = new System.Drawing.Point(169, 255);
+            this.gcountTB.Margin = new System.Windows.Forms.Padding(4);
             this.gcountTB.Name = "gcountTB";
             this.gcountTB.Size = new System.Drawing.Size(139, 21);
             this.gcountTB.TabIndex = 6;
             this.gcountTB.Text = "3";
-            this.gcountTB.Leave += new System.EventHandler(this.gcountTB_Leave);
+            this.gcountTB.TextChanged += new System.EventHandler(this.gcountTB_TextChanged);
             // 
             // AcceptB
             // 
-            this.AcceptB.Location = new System.Drawing.Point(364, 267);
-            this.AcceptB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AcceptB.Location = new System.Drawing.Point(360, 280);
+            this.AcceptB.Margin = new System.Windows.Forms.Padding(4);
             this.AcceptB.Name = "AcceptB";
             this.AcceptB.Size = new System.Drawing.Size(111, 26);
             this.AcceptB.TabIndex = 20;
@@ -243,8 +244,8 @@
             // 
             // CancelB
             // 
-            this.CancelB.Location = new System.Drawing.Point(500, 267);
-            this.CancelB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelB.Location = new System.Drawing.Point(496, 280);
+            this.CancelB.Margin = new System.Windows.Forms.Padding(4);
             this.CancelB.Name = "CancelB";
             this.CancelB.Size = new System.Drawing.Size(109, 26);
             this.CancelB.TabIndex = 21;
@@ -265,7 +266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 307);
+            this.ClientSize = new System.Drawing.Size(636, 321);
             this.ControlBox = false;
             this.Controls.Add(this.namesCB);
             this.Controls.Add(this.CancelB);
@@ -290,9 +291,10 @@
             this.Controls.Add(this.enameTB);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddingPlane";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавление самолёта";
             this.ResumeLayout(false);
             this.PerformLayout();

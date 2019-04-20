@@ -10,7 +10,7 @@ namespace PlaneAppLibrary
     /// <summary>
     /// Представляет методы и свойства класса "Двигатель"
     /// </summary>
-    class Engine : IPlanePart
+    public class Engine : IPlanePart
     {
         public string Name { get; set; }
         double Rate { get; set; }
@@ -36,19 +36,20 @@ namespace PlaneAppLibrary
 
 
         /// <summary>
+        /// Установить имя
+        /// </summary>
+        public void SetName(string newName) => Name = newName;
+
+        /// <summary>
         /// Получить расход топлива одного двигателя
         /// </summary>
         public double GetRate() => Rate;
 
 
         /// <summary>
-        /// Установить расход топлива одного двигателя
+        /// Установить расход топлива
         /// </summary>
-        public void SetRate(double newRate)
-        {
-            Rate = newRate;
-            MessageBox.Show($"Расход топлива установлен на {Rate}");
-        }
+        public void SetRate(double newRate) => Rate = newRate;
 
 
         /// <summary>
@@ -60,11 +61,7 @@ namespace PlaneAppLibrary
         /// <summary>
         /// Установить количество двигателей
         /// </summary>
-        public void SetEnginesCount(int newCount)
-        {
-            Count = newCount;
-            MessageBox.Show($"Количество двигателей изменено на {Count}");
-        }
+        public void SetEnginesCount(int newCount) => Count = newCount;
 
 
         /// <summary>
@@ -80,6 +77,6 @@ namespace PlaneAppLibrary
 
 
         public override string ToString() => $"{GetName()} :: {GetSpecs()}";
-        
+
     }
 }
