@@ -48,7 +48,7 @@ namespace PlaneApp
         /// </summary>
         private void ToFlyPlane_Click(object sender, EventArgs e)
         {
-            double result = selectedPlane.ToFly(selectedPlane.Engine.GetRate(), selectedPlane.Wing.GetFuelLevel(), selectedPlane.ID);
+            double result = selectedPlane.ToFly(selectedPlane.Engine.GetRate(), selectedPlane.Wing.GetFuelLevel(), selectedPlane.ID, selectedPlane.Engine.GetEnginesCount());
             if (result > 0)
             {
                 selectedPlane.Wing.WasteFuel(result);
@@ -201,7 +201,7 @@ namespace PlaneApp
         /// </summary>
         private void своёToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddFuel addFuel = new AddFuel(selectedPlane.Engine.GetRate());
+            AddFuel addFuel = new AddFuel(selectedPlane.Engine.GetRate(), selectedPlane.Engine.GetEnginesCount());
             addFuel.ShowDialog();
 
             if (addFuel.Ready)

@@ -34,7 +34,7 @@ namespace PlaneAppLibrary
 
         public string GetName() => Name;
 
-        public string GetSpecs() => $"{Engine}\r\n\r\n{Gear}\r\n\r\n{Wing}";
+        public string GetSpecs() => $"{GetFullName(Engine)}\r\n\r\n{GetFullName(Gear)}\r\n\r\n{GetFullName(Wing)}";
 
     }
 }

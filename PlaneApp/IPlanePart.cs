@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlaneAppLibrary
 {
-    interface IPlanePart
+    public interface IPlanePart
     {
         string Name { get; set; }
 

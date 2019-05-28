@@ -22,11 +22,11 @@ namespace PlaneAppLibrary
         /// <param name="fuel">Количество топлива в баках</param>
         /// <param name="ID">ID самолёта</param>
         /// <returns>Возвращает истраченное количество топлива или 0, если полёт не совершился</returns>
-        public double ToFly(double rate, double fuel, int ID)
+        public double ToFly(double rate, double fuel, int ID, double countEng)
         {
             if (Routes.ContainsKey(ID))
             {
-                double result = Routes[ID] / 900 * rate;
+                double result = Routes[ID] / 900 * rate * countEng;
                 if (result > fuel)
                 {
                     MessageBox.Show("Самолёт не пролетит столько без дозаправок, выберите маршрут короче или дозаправьте самолёт!", "Ошибка!", 
@@ -90,5 +90,8 @@ namespace PlaneAppLibrary
             else
                 MessageBox.Show("Маршрут не задан!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+
+        public string GetFullName(IPlanePart planePart) => $"{planePart.GetName()} :: {planePart.GetSpecs()}";
     }
 }

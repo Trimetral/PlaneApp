@@ -15,10 +15,12 @@ namespace PlaneApp
         public bool Ready = false;
         public double Capasity;
         double rate;
+        double count;
 
-        public AddFuel(double rate)
+        public AddFuel(double rate, double count)
         {
             this.rate = rate;
+            this.count = count;
             InitializeComponent();
         }
 
@@ -58,7 +60,7 @@ namespace PlaneApp
                 double route = Convert.ToDouble(routeTB.Text);
                 if (route > 0)
                 {
-                    fuelTB.Text = (route / 900 * rate + 0.001).ToString();
+                    fuelTB.Text = (route / 900 * rate * count + 0.001).ToString();
                 }
                 else
                 {
